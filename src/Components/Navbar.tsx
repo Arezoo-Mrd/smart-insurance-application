@@ -6,7 +6,7 @@ const Navbar = () => {
  const { t } = useTranslation();
 
  return (
-  <nav className="flex justify-start items-center bg-gray-900 text-white h-18 p-4 w-full">
+  <nav className="flex flex-col md:flex-row justify-start md:items-center bg-gray-900 text-white h-fit md:h-18 p-4 w-full">
    <ul className="w-full flex items-center gap-5">
     <li>
      <Link to="/" className="hover:text-gray-400">
