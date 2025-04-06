@@ -6,7 +6,14 @@
         "required": "Entering {{field}} is mandatory",
         "invalid": "The entered value for {{field}} is invalid",
         "minLength": "The minimum length of {{field}} must be {{length}} characters",
-        "maxLength": "The maximum length of {{field}} must be {{length}} characters"
+        "maxLength": "The maximum length of {{field}} must be {{length}} characters",
+        "submit": "Submit",
+        "submitSuccess": "Form submitted successfully!",
+        "thanks": "Thank you for your submission. We'll process your request shortly.",
+        "submitError": "Error in submitting the request, please try again"
+    },
+    "common": {
+        "close": "Close"
     },
     "submitted": {
         "title": "Application Submitted",

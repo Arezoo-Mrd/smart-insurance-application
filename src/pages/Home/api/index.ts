@@ -1,5 +1,5 @@
 import { axiosInstance } from "@/utils/axios";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { DynamicFormData, GetStatesResponse } from "./api.types";
 
 const getForms = async (): Promise<DynamicFormData[]> => {
@@ -18,6 +18,11 @@ const getStates = async (country: string): Promise<GetStatesResponse> => {
    },
   }
  );
+ return data;
+};
+
+const submitForm = async (body: unknown) => {
+ const { data } = await axiosInstance.post("api/insurance/forms/submit", body);
  return data;
 };
 
@@ -43,5 +48,12 @@ export const useStatesQuery = (country: string) => {
   refetchInterval: false,
   retry: 3,
   retryDelay: 1000,
+ });
+};
+
+export const useSubmitFormMutation = () => {
+ return useMutation({
+  mutationFn: submitForm,
+  mutationKey: ["submitForm"],
  });
 };

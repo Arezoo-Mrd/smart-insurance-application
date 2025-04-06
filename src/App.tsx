@@ -6,6 +6,7 @@ import Home from "./pages/Home/index";
 import SubmittedApplication from "./pages/SubmittedApplication";
 import "@/utils/i18n";
 import LanguageSwitcher from "./Components/LanguageSwitcher";
+import { Toaster } from "sonner";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => {
 
  return (
   <QueryClientProvider client={queryClient}>
+   <Toaster />
    <BrowserRouter>
     <div className="min-h-screen bg-gray-50">
      <LanguageSwitcher />
