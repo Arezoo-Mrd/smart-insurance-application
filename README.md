@@ -225,7 +225,7 @@ smart-insurance-app/
 ### 1.Clone the repository
 
 ```bash
-git clone https://github.com/your-username/smart-insurance-app.git
+git clone https://github.com/Arezoo-Mrd/smart-insurance-application.git
 cd smart-insurance-app
 ```
 
