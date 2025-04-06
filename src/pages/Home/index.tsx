@@ -13,8 +13,10 @@ export default function Home() {
   </div>
  ) : (
   <div className="w-full h-full flex flex-col text-sm items-center justify-center">
-   <div className="w-full bg-white flex items-center flex-col justify-center border p-3 md:p-4 rounded-xl min-h-96 border-gray-50 shadow  lg:w-1/3">
-    <p className="text-sm pb-2 md:pb-3 text-gray-700">{t("home.hint")}</p>
+   <div className="w-full dark:bg-gray-900  bg-white flex items-center flex-col justify-center border p-3 md:p-4 rounded-xl min-h-96 border-gray-50 shadow  lg:w-1/3">
+    <p className="text-sm pb-2 md:pb-3 dark:text-white text-gray-700">
+     {t("home.hint")}
+    </p>
     <FormMaker data={data} />
    </div>
   </div>

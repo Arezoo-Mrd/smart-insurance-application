@@ -21,7 +21,7 @@ const App = () => {
   <QueryClientProvider client={queryClient}>
    <Toaster />
    <BrowserRouter>
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen dark:bg-gray-950 bg-gray-50">
      <Navbar />
      <div className="container min-h-screen mx-auto pt-20">
       <Routes>

@@ -40,17 +40,19 @@ export const SuccessMessage = ({
    onClick={onClose}
   >
    <div
-    className="bg-white rounded-lg p-6 shadow-xl transform animate-in fade-in slide-in-from-bottom-4 duration-300"
+    className="bg-white dark:bg-blue-800 rounded-lg p-6 shadow-xl transform animate-in fade-in slide-in-from-bottom-4 duration-300"
     onClick={(e) => e.stopPropagation()}
    >
     <div className="flex items-center gap-3">
-     <CheckCircle2 className="w-8 h-8 text-blue-500" />
-     <h3 className="text-xl font-semibold text-gray-900">{message}</h3>
+     <CheckCircle2 className="w-8 h-8 text-blue-500 dark:text-white" />
+     <h3 className="text-xl font-semibold dark:text-white text-gray-900">
+      {message}
+     </h3>
     </div>
-    <p className="mt-2 text-gray-600">{hint}</p>
+    <p className="mt-2 dark:text-white/80 text-gray-600">{hint}</p>
     <button
      onClick={onClose}
-     className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+     className="mt-4 w-full bg-blue-500 dark:bg-blue-950 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
     >
      {t("common.close")}
     </button>

@@ -9,6 +9,7 @@ import { CheckboxField } from "./CheckboxField";
 import { InputField } from "./InputField";
 import Wrapper from "./Wrapper";
 import { TextareaField } from "./TextAreaField";
+import Loading from "../Loading";
 
 interface FormFieldProps {
  field: Field | SubField;
@@ -32,7 +33,7 @@ const FormField = ({ field }: FormFieldProps) => {
  const dependentValue = dependsOn && watch(dependsOn);
  const dynamicOptionsValue = dynamicOptions && watch(dynamicOptions.dependsOn);
 
- const { data: dynamicData } = useStatesQuery(dynamicOptionsValue);
+ const { data: dynamicData, isLoading } = useStatesQuery(dynamicOptionsValue);
 
  const isVisible = useMemo(() => {
   if (!dependsOn) return true;
@@ -117,7 +118,11 @@ const FormField = ({ field }: FormFieldProps) => {
  const renderField = () => {
   switch (field.type) {
    case "select":
-    return (
+    return isLoading ? (
+     <div className="flex justify-center items-center">
+      <Loading className="w-7 h-7 text-gray-100" />
+     </div>
+    ) : (
      <SelectField
       id={fieldId}
       label={field.label}

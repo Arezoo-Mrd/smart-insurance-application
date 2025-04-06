@@ -19,7 +19,7 @@ export default function LanguageSwitcher() {
 
  return (
   <div className=" flex items-center gap-2">
-   <Globe className="w-6 h-6 text-blue-400" />
+   <Globe className="w-6 h-6 dark:text-blue-800 text-blue-400" />
    <Select
     dir={i18n.language === "fa" ? "rtl" : "ltr"}
     onValueChange={changeLanguage}

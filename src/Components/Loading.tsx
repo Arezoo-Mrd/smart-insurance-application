@@ -12,7 +12,7 @@ const Loading = ({
   <div
    role="status"
    className={twMerge(
-    "flex items-center text-blue-500  justify-center",
+    "flex items-center text-blue-500 dark:text-slate-50  justify-center",
     className
    )}
   >

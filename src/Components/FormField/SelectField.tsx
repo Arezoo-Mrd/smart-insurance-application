@@ -32,7 +32,9 @@ export const SelectField = ({
  dir = "ltr",
 }: SelectFieldProps) => {
  const { t } = useTranslation();
- const errorClasses = error ? "border-red-500" : "border-gray-300";
+ const errorClasses = error
+  ? "border-red-500 dark:border-red-300"
+  : "border-gray-300";
 
  return (
   <Select dir={dir} value={value} name={id} onValueChange={onValueChange}>

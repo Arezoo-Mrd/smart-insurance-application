@@ -10,15 +10,15 @@ const TableInfo = ({
  const { t } = useTranslation();
 
  return (
-  <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-   <h3 className="text-lg font-bold text-center mb-4 text-gray-700">
+  <div className="mt-8 p-4 dark:bg-gray-950 bg-blue-50 rounded-lg">
+   <h3 className="text-lg font-bold text-center mb-4 dark:text-white text-gray-700">
     {t("submittedApp.submittedFormInfo")}
    </h3>
    <div className=" w-full flex flex-col gap-3 text-center justify-center items-center ">
     {Object.entries(rowData.original)
      .filter(([key]) => key !== "id")
      .map(([key, value]) => (
-      <span key={key} className="text-gray-600">
+      <span key={key} className="text-gray-600 dark:text-gray-400">
        {t(`submittedApp.${key}`)}: {value}
       </span>
      ))}

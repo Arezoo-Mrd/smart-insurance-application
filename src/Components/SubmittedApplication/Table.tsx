@@ -70,7 +70,7 @@ export function DataTable<TData, TValue>({
  return (
   <>
    <Dialog>
-    <div className="rounded-lg min-h-[400px] shadow bg-white w-full lg:w-3/4 border flex flex-col justify-between">
+    <div className="rounded-lg min-h-[400px] shadow bg-white dark:bg-black/50 w-full lg:w-3/4 border flex flex-col justify-between">
      <div className="flex flex-col">
       <DialogTrigger ref={dialogTriggerRef}></DialogTrigger>
 

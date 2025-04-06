@@ -39,12 +39,12 @@ const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
      aria-label="previous page"
      className={`${
       currentPage === 1 ? "pointer-events-none" : ""
-     }  min-w-fit items-center rounded-lg cursor-pointer border border-gray-900 p-1 transition-all duration-500 ease-in-out flex`}
+     }  min-w-fit items-center rounded-lg cursor-pointer border dark:border-gray-500 border-gray-900 p-1 transition-all duration-500 ease-in-out flex`}
     >
      {i18n.language === "fa" ? (
-      <ArrowRight size={20} className="text-gray-900" />
+      <ArrowRight size={20} className="text-gray-900 dark:text-gray-500" />
      ) : (
-      <ArrowLeft size={20} className="text-gray-900" />
+      <ArrowLeft size={20} className="text-gray-900 dark:text-gray-500" />
      )}
     </button>
     <ul
@@ -56,8 +56,8 @@ const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
         <li
          className={`${
           pageNumber === currentPage
-           ? "bg-secondary-50 text-blue-500"
-           : "text-gray-900"
+           ? "bg-secondary-50 text-blue-500 dark:text-blue-300"
+           : "text-gray-900 dark:text-gray-500"
          } flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg font-RaviFaNum-Medium transition-all duration-200 ease-linear`}
          onClick={() => onPageChange(pageNumber)}
          key={pageNumber}
@@ -73,12 +73,12 @@ const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
      aria-label="next page"
      className={`${
       currentPage === lastPage ? "pointer-events-none" : ""
-     }  min-w-fit items-center cursor-pointer rounded-lg border border-gray-900 p-1 transition-all duration-500 ease-in-out flex`}
+     }  min-w-fit items-center cursor-pointer rounded-lg border  dark:border-gray-500 border-gray-900 p-1 transition-all duration-500 ease-in-out flex`}
     >
      {i18n.language === "fa" ? (
-      <ArrowLeft size={20} className="text-gray-900" />
+      <ArrowLeft size={20} className="text-gray-900 dark:text-gray-500" />
      ) : (
-      <ArrowRight size={20} className="text-gray-900" />
+      <ArrowRight size={20} className="text-gray-900 dark:text-gray-500" />
      )}
     </button>
    </div>
