@@ -13,12 +13,18 @@
         "submitError": "Error in submitting the request, please try again"
     },
     "common": {
-        "close": "Close"
+        "close": "Close",
+        "noData": "No data available",
+        "next": "Next",
+        "previous": "Previous"
     },
-    "submitted": {
-        "title": "Application Submitted",
-        "description": "Thank you for submitting your application",
-        "backHome": "Back to Home"
+    "submittedApp": {
+        "Full Name": "Full Name",
+        "Age": "Age",
+        "City": "City",
+        "row": "Row",
+        "Insurance Type": "Insurance Type",
+        "Gender": "Gender"
     },
     "nav": {
         "language": "Language",

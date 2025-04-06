@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
 import Navbar from "./Components/Navbar";
 import Home from "./pages/Home/index";
-import SubmittedApplication from "./pages/SubmittedApplication";
+import SubmittedApplicationPage from "./pages/SubmittedApplication";
 
 const queryClient = new QueryClient();
 
@@ -23,13 +23,12 @@ const App = () => {
    <BrowserRouter>
     <div className="min-h-screen bg-gray-50">
      <Navbar />
-
-     <div className="container mx-auto pt-20">
+     <div className="container min-h-screen mx-auto pt-20">
       <Routes>
        <Route path="/" element={<Home />} />
        <Route
         path="/submitted-application"
-        element={<SubmittedApplication />}
+        element={<SubmittedApplicationPage />}
        />
       </Routes>
      </div>

@@ -13,12 +13,18 @@
     "submitError": "خطا در ثبت درخواست، لطفاً دوباره تلاش کنید"
   },
   "common": {
-    "close": "بستن"
+    "close": "بستن",
+    "noData": "داده‌ای موجود نیست",
+    "next": "بعدی",
+    "previous": "قبلی"
   },
-  "submitted": {
-    "title": "درخواست ارسال شد",
-    "description": "با تشکر از ارسال درخواست شما",
-    "backHome": "بازگشت به خانه"
+  "submittedApp": {
+    "Full Name": "نام کامل",
+    "row": "ردیف",
+    "Age": "سن",
+    "City": "شهر",
+    "Insurance Type": "نوع بیمه",
+    "Gender": "جنسیت"
   },
   "nav": {
     "language": "زبان",
