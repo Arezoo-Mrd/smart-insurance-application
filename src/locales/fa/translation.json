@@ -25,7 +25,8 @@
     "Age": "سن",
     "City": "شهر",
     "Insurance Type": "نوع بیمه",
-    "Gender": "جنسیت"
+    "Gender": "جنسیت",
+    "submittedFormInfo": "اطلاعات فرم ارسال شده"
   },
   "nav": {
     "language": "زبان",

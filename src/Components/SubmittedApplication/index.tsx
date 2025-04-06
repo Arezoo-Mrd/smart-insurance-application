@@ -18,6 +18,7 @@ const SubmittedApplication = ({ data }: SubmittedApplicationProps) => {
    return [
     {
      accessorKey: "id",
+
      // eslint-disable-next-line @typescript-eslint/no-explicit-any
      header: ({ column }: { column: any }) => {
       return (

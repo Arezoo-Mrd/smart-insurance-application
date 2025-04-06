@@ -25,7 +25,8 @@
         "City": "City",
         "row": "Row",
         "Insurance Type": "Insurance Type",
-        "Gender": "Gender"
+        "Gender": "Gender",
+        "submittedFormInfo": "Submitted Form Information"
     },
     "nav": {
         "language": "Language",
