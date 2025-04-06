@@ -2,7 +2,11 @@
     "home": {
         "selectForm": "Choose your insurance",
         "hint": "Please select the type of insurance you need from the list below. Each type of insurance has its own specific form, which will be displayed to you based on the required information.",
-        "select": "Select"
+        "select": "Select",
+        "required": "Entering {{field}} is mandatory",
+        "invalid": "The entered value for {{field}} is invalid",
+        "minLength": "The minimum length of {{field}} must be {{length}} characters",
+        "maxLength": "The maximum length of {{field}} must be {{length}} characters"
     },
     "submitted": {
         "title": "Application Submitted",

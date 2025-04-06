@@ -1,3 +1,4 @@
+import { useStatesQuery } from "@/pages/Home/api";
 import { Field, SubField } from "@/pages/Home/api/api.types";
 import { useMemo } from "react";
 import { useFormContext } from "react-hook-form";
@@ -11,7 +12,6 @@ import {
  SelectValue,
 } from "./ui/select";
 import { Textarea } from "./ui/textarea";
-import { useStatesQuery } from "@/pages/Home/api";
 
 interface FormFieldProps {
  field: Field | SubField;
@@ -22,8 +22,10 @@ const FormField = ({ field }: FormFieldProps) => {
  const {
   setValue,
   watch,
+  register,
   formState: { errors },
  } = useFormContext();
+
  const fieldId = field.id;
  const value = watch(fieldId);
  const error = errors[fieldId];
@@ -45,25 +47,6 @@ const FormField = ({ field }: FormFieldProps) => {
  }, [dependsOn, visibility?.value, dependentValue]);
 
  if (!isVisible) return null;
-
- const handleChange = (
-  e:
-   | React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-     >
-   | string
- ) => {
-  if (typeof e === "string") {
-   setValue(fieldId, e);
-   return;
-  }
-  const newValue =
-   e.target.type === "checkbox"
-    ? (e.target as HTMLInputElement).checked
-    : e.target.value;
-
-  setValue(fieldId, newValue);
- };
 
  if (field.type === "group") {
   return (
@@ -88,13 +71,25 @@ const FormField = ({ field }: FormFieldProps) => {
     return (
      <>
       <Select
-       onValueChange={(event) => handleChange(event)}
        dir={i18n.language === "fa" ? "rtl" : "ltr"}
        value={value as string}
-       required={field.required}
+       {...register(fieldId, {
+        required: {
+         value: isVisible ?? !!field.required,
+         message: t("home.required", {
+          field: field.label,
+         }),
+        },
+       })}
        name={fieldId}
+       onValueChange={(value) => {
+        setValue(fieldId, value, {
+         shouldValidate: true,
+         shouldDirty: true,
+        });
+       }}
       >
-       <SelectTrigger className="w-full">
+       <SelectTrigger className={`w-full ${errorClasses}`}>
         <SelectValue placeholder={`${t("home.select")} ${field.label}`} />
        </SelectTrigger>
        <SelectContent>
@@ -123,12 +118,21 @@ const FormField = ({ field }: FormFieldProps) => {
        <label key={option} className="flex items-center space-x-2">
         <input
          type="radio"
+         {...register(fieldId, {
+          required: {
+           value: isVisible ?? !!field.required,
+           message: t("home.required", {
+            field: field.label,
+           }),
+          },
+          onChange(event) {
+           setValue(fieldId, event.target.value);
+          },
+         })}
          name={fieldId}
          value={option}
          id={option}
          checked={value === option}
-         onChange={handleChange}
-         required={field.required}
          className="text-blue-600 focus:ring-blue-500"
         />
         <span>{option}</span>
@@ -143,18 +147,24 @@ const FormField = ({ field }: FormFieldProps) => {
       {field.options?.map((option) => (
        <label key={option} className="flex items-center space-x-2">
         <input
+         {...register(fieldId, {
+          required: {
+           value: isVisible ?? !!field.required,
+           message: t("home.required", {
+            field: field.label,
+           }),
+          },
+          onChange(event) {
+           const currentValues = (value as string[]) || [];
+           const newValues = event.target.checked
+            ? [...currentValues, option]
+            : currentValues.filter((v) => v !== option);
+           setValue(fieldId, newValues);
+          },
+         })}
          type="checkbox"
          name={fieldId}
          value={option}
-         checked={(value as string[])?.includes(option)}
-         onChange={(e) => {
-          const currentValues = (value as string[]) || [];
-          const newValues = e.target.checked
-           ? [...currentValues, option]
-           : currentValues.filter((v) => v !== option);
-          setValue(fieldId, newValues);
-         }}
-         required={field.required}
          className="text-blue-600 focus:ring-blue-500"
         />
         <span>{option}</span>
@@ -168,8 +178,29 @@ const FormField = ({ field }: FormFieldProps) => {
      <>
       <Textarea
        id={fieldId}
-       onChange={handleChange}
-       required={field.required}
+       {...register(fieldId, {
+        required: {
+         value: isVisible ?? !!field.required,
+         message: `${field.label} is required`,
+        },
+        minLength: {
+         value: field.validation?.min || 0,
+         message: t("home.minLength", {
+          field: field.label,
+          min: field.validation?.min,
+         }),
+        },
+        maxLength: {
+         value: field.validation?.max || 1000,
+         message: t("home.maxLength", {
+          field: field.label,
+          max: field.validation?.max,
+         }),
+        },
+        onChange(event) {
+         setValue(fieldId, event.target.value);
+        },
+       })}
        value={value as string}
        placeholder={field?.label}
        className={` ${errorClasses}`}
@@ -182,11 +213,40 @@ const FormField = ({ field }: FormFieldProps) => {
       <Input
        id={fieldId}
        type={field.type}
-       onChange={handleChange}
-       required={field.required}
+       {...register(fieldId, {
+        required: {
+         value: isVisible ?? !!field.required,
+         message: t("home.required", {
+          field: field.label,
+         }),
+        },
+        minLength: {
+         value: field.validation?.min || 0,
+         message: t("home.minLength", {
+          field: field.label,
+          min: field.validation?.min,
+         }),
+        },
+        maxLength: {
+         value: field.validation?.max || 1000,
+         message: t("home.maxLength", {
+          field: field.label,
+          max: field.validation?.max,
+         }),
+        },
+        pattern: {
+         value: field.validation?.pattern
+          ? new RegExp(field.validation.pattern)
+          : new RegExp(""),
+         message: t("home.invalid", {
+          field: field.label,
+         }),
+        },
+        onChange(event) {
+         setValue(fieldId, event.target.value);
+        },
+       })}
        value={value as string}
-       min={field.validation?.min}
-       max={field.validation?.max}
        pattern={field.validation?.pattern}
        placeholder={field?.label}
        className={`${errorClasses}`}

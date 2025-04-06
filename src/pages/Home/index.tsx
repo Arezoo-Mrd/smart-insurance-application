@@ -7,13 +7,16 @@ import {
  SelectValue,
 } from "@/Components/ui/select";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useFormQuery } from "./api";
 import { DynamicFormData } from "./api/api.types";
 
 export default function Home() {
  const { t, i18n } = useTranslation();
+ const controls = useForm();
 
+ console.log("controls", controls.formState.errors);
  const { data, isLoading } = useFormQuery();
 
  const [selectedForm, setSelectedForm] = useState<DynamicFormData["formId"]>();
@@ -27,7 +30,10 @@ export default function Home() {
    <div className="w-full bg-white flex items-center flex-col justify-center border p-3 md:p-4 rounded-xl min-h-96 border-gray-50 shadow  lg:w-1/3">
     <p className="text-sm pb-2 md:pb-3 text-gray-700">{t("home.hint")}</p>
     <Select
-     onValueChange={(selectedItem) => setSelectedForm(selectedItem)}
+     onValueChange={(selectedItem) => {
+      setSelectedForm(selectedItem);
+      controls.reset();
+     }}
      dir={i18n.language === "fa" ? "rtl" : "ltr"}
     >
      <SelectTrigger className="w-full">
@@ -43,11 +49,11 @@ export default function Home() {
     </Select>
     <div
      className={` w-full rounded-xl transition-[max_height] duration-300 delay-300 mt-4 overflow-hidden ${
-      selectedForm ? "max-h-[999px]" : "max-h-0"
+      selectedForm ? "max-h-[2000px]" : "max-h-0"
      }`}
     >
      {data && selectedForm && (
-      <FormMaker data={data} selectedForm={selectedForm} />
+      <FormMaker controls={controls} data={data} selectedForm={selectedForm} />
      )}
     </div>
    </div>
