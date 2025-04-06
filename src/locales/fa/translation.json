@@ -16,7 +16,8 @@
     "close": "بستن",
     "noData": "داده‌ای موجود نیست",
     "next": "بعدی",
-    "previous": "قبلی"
+    "previous": "قبلی",
+    "search": "جستجوی {{field}}"
   },
   "submittedApp": {
     "Full Name": "نام کامل",

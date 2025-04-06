@@ -16,7 +16,8 @@
         "close": "Close",
         "noData": "No data available",
         "next": "Next",
-        "previous": "Previous"
+        "previous": "Previous",
+        "search": "Search {{field}}"
     },
     "submittedApp": {
         "Full Name": "Full Name",
