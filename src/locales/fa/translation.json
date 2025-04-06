@@ -24,6 +24,8 @@
     "language": "زبان",
     "english": "English",
     "persian": "فارسی",
-    "selectLanguage": "انتخاب زبان"
+    "selectLanguage": "انتخاب زبان",
+    "listOfSubmittedApplications": "لیست درخواست‌های ارسال شده",
+    "home": "خانه"
   }
 }

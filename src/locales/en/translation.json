@@ -24,6 +24,8 @@
         "language": "Language",
         "english": "English",
         "persian": "فارسی",
-        "selectLanguage": "Select Language"
+        "selectLanguage": "Select Language",
+        "listOfSubmittedApplications": "List of Submitted Applications",
+        "home": "Home"
     }
 }

@@ -18,7 +18,7 @@ export default function LanguageSwitcher() {
  };
 
  return (
-  <div className="absolute top-4 z-50  right-4 flex items-center gap-2">
+  <div className=" flex items-center gap-2">
    <Globe className="w-6 h-6 text-blue-400" />
    <Select
     dir={i18n.language === "fa" ? "rtl" : "ltr"}

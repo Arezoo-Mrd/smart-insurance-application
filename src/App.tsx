@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "@/utils/i18n";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Toaster } from "sonner";
+import Navbar from "./Components/Navbar";
 import Home from "./pages/Home/index";
 import SubmittedApplication from "./pages/SubmittedApplication";
-import "@/utils/i18n";
-import LanguageSwitcher from "./Components/LanguageSwitcher";
-import { Toaster } from "sonner";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +22,8 @@ const App = () => {
    <Toaster />
    <BrowserRouter>
     <div className="min-h-screen bg-gray-50">
-     <LanguageSwitcher />
+     <Navbar />
+
      <div className="container mx-auto pt-20">
       <Routes>
        <Route path="/" element={<Home />} />
