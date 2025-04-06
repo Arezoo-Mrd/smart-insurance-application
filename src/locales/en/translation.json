@@ -34,6 +34,9 @@
         "persian": "فارسی",
         "selectLanguage": "Select Language",
         "listOfSubmittedApplications": "List of Submitted Applications",
-        "home": "Home"
+        "home": "Home",
+        "dark": "Dark",
+        "light": "Light",
+        "selectTheme": "Select Theme"
     }
 }
