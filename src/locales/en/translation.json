@@ -1,0 +1,18 @@
+{
+    "home": {
+        "selectForm": "Choose your insurance",
+        "hint": "Please select the type of insurance you need from the list below. Each type of insurance has its own specific form, which will be displayed to you based on the required information.",
+        "select": "Select"
+    },
+    "submitted": {
+        "title": "Application Submitted",
+        "description": "Thank you for submitting your application",
+        "backHome": "Back to Home"
+    },
+    "nav": {
+        "language": "Language",
+        "english": "English",
+        "persian": "فارسی",
+        "selectLanguage": "Select Language"
+    }
+}
