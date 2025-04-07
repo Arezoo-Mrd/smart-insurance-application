@@ -83,8 +83,8 @@ const FormMaker = ({ data }: FormMakerProps) => {
         ?.fields.map((field) => (
          <FormField key={field.id} field={field} />
         ))}
-       <div className="flex justify-center items-center my-4">
-        <Button className="" type="submit">
+       <div className="flex items-center justify-center my-4">
+        <Button disabled={isPending} className="" type="submit">
          {isPending ? (
           <Loading className="w-5 h-5 text-gray-100" />
          ) : (
